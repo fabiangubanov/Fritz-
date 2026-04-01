@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FritzPass Overlay</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="hint" class="hint">Drücke <kbd>F9</kbd>, um FritzPass zu öffnen.</div>
+
+    <aside id="panel" class="panel" hidden>
+      <header class="panel-header">
+        <h1>FritzPass (nur für fritz.box)</h1>
+        <button id="close-panel" type="button" aria-label="Schließen">✕</button>
+      </header>
+
+      <p id="domain-warning" class="warning" hidden>
+        FritzPass ist nur auf <strong>fritz.box</strong> verfügbar.
+      </p>
+
+      <section class="card">
+        <h2>Zugangsdaten</h2>
+        <form id="entry-form">
+          <label>
+            Benutzername
+            <input id="username" name="username" required placeholder="FRITZ!Box Benutzer" />
+          </label>
+
+          <label>
+            Passwort
+            <div class="password-row">
+              <input id="password" name="password" type="text" required placeholder="Passwort" />
+              <button id="generate" type="button">Generieren</button>
+            </div>
+          </label>
+
+          <label>
+            Notiz (optional)
+            <textarea id="note" name="note" rows="2" placeholder="z. B. Gast-WLAN"></textarea>
+          </label>
+
+          <button class="save" type="submit">Speichern</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2>Gespeicherte Logins</h2>
+          <button id="clear-all" class="danger" type="button">Alles löschen</button>
+        </div>
+        <p id="empty-state">Noch keine Einträge gespeichert.</p>
+        <ul id="entries"></ul>
+      </section>
+    </aside>
+
+    <template id="entry-template">
+      <li class="entry">
+        <div>
+          <p><strong>Benutzer:</strong> <span class="username"></span></p>
+          <p><strong>Passwort:</strong> <code class="password"></code></p>
+          <p class="note-row"><strong>Notiz:</strong> <span class="note"></span></p>
+          <small class="timestamp"></small>
+        </div>
+        <div class="actions">
+          <button class="copy" type="button">Kopieren</button>
+          <button class="delete danger" type="button">Löschen</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

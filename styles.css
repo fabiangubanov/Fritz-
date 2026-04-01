@@ -1,0 +1,149 @@
+:root {
+  color-scheme: dark;
+  --bg: #0e1116;
+  --panel: #161d28;
+  --card: #1c232d;
+  --text: #e9eef8;
+  --muted: #9bacbf;
+  --ok: #2f9f68;
+  --danger: #bb3b46;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #182132 0%, var(--bg) 60%);
+  color: var(--text);
+}
+
+.hint {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: #111824;
+  border: 1px solid #2d394a;
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  color: var(--muted);
+  z-index: 10;
+}
+
+kbd {
+  background: #293547;
+  border-radius: 6px;
+  padding: 0.1rem 0.4rem;
+}
+
+.panel {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: min(460px, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid #324159;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+  display: grid;
+  gap: 0.85rem;
+  z-index: 20;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.warning {
+  border: 1px solid #77513f;
+  color: #ffd2bf;
+  background: #41271e;
+  border-radius: 10px;
+  padding: 0.65rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid #2f3949;
+  padding: 0.85rem;
+}
+
+label,
+form,
+.entry {
+  display: grid;
+  gap: 0.55rem;
+}
+
+input,
+textarea,
+button {
+  border: 1px solid #3a4759;
+  border-radius: 9px;
+  background: #0f141d;
+  color: var(--text);
+  padding: 0.6rem 0.7rem;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.password-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.save {
+  background: var(--ok);
+  border-color: transparent;
+}
+
+.danger {
+  background: var(--danger);
+  border-color: transparent;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#entries {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.entry {
+  border: 1px solid #324054;
+  border-radius: 10px;
+  padding: 0.65rem;
+  grid-template-columns: 1fr auto;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#empty-state,
+.note-row {
+  color: var(--muted);
+}
