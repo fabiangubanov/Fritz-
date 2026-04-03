@@ -1,0 +1,17 @@
+name: FritzPlugin
+version: '1.0.0'
+main: de.fritz.plugin.FritzPlugin
+api-version: '1.21'
+authors: [Fritz]
+description: Einfaches Beispielplugin für Paper 1.21.x
+
+commands:
+  fritz:
+    description: Hauptbefehl des FritzPlugins
+    usage: /fritz [hello|heal]
+    permission: fritz.use
+
+permissions:
+  fritz.use:
+    description: Erlaubt die Nutzung von /fritz
+    default: true
